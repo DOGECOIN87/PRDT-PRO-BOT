@@ -47,7 +47,7 @@ export const getBalances = async () => {
 
 export const getBets = async ({ network, limit = 5 }) => {
   const result = await axios.get(
-    `http://localhost:1337/api/v1/prediction/bets/${network}?limit=${limit}`,
+    `https://api.prdt.finance/api/v1/prediction/bets/${network}?limit=${limit}`,
     {
       headers: { cookie: global.authTokens },
     }
@@ -93,7 +93,7 @@ const requestMessage = async ({ address }) => {
     network: "evm",
   };
   const result = await axios.post(
-    `http://localhost:1337/auth/request-message`,
+    `https://api.prdt.finance/auth/request-message`,
     userData,
     {
       headers: {
@@ -110,7 +110,7 @@ const requestMessage = async ({ address }) => {
 
 const verify = (message, signature) => {
   const result = axios.post(
-    `http://localhost:1337/auth/verify`,
+    `https://api.prdt.finance/auth/verify`,
     {
       message,
       signature,
